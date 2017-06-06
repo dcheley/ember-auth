@@ -20,7 +20,14 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    ENV['simple-auth'] = {
+      store: 'simple-auth-session-store:local-storage',
+      authorizer: 'authorizer:custom',
+      crossOriginWhitelist: ['http://localhost:3001/'],
+      routeAfterAuthentication: '/protected'
+    };
   };
 
   if (environment === 'development') {
